@@ -2,27 +2,25 @@
 
 #include <math.h>
 #include <iostream>
-#include <stdlib.h>
-#include <algorithm>
 
 using namespace std;
 
-// // GCD esterno
+ // GCD esterno
 
-// int gcd(int a, int b) 
-// { 
-//     // Find Minimum of a and b 
-//     int result = min(a, b); 
-//     while (result > 0) { 
-//         if (a % result == 0 && b % result == 0) { 
-//             break; 
-//         } 
-//         result--; 
-//     } 
+int gcd(int a, int b) 
+{ 
+    // Find Minimum of a and b 
+    int result = min(a, b); 
+    while (result > 0) { 
+        if (a % result == 0 && b % result == 0) { 
+            break; 
+        } 
+        result--; 
+    } 
   
-//     // Return gcd of a and b 
-//     return result; 
-// } 
+    // Return gcd of a and b 
+    return result; 
+} 
 
 // Dalla lezione:
 
@@ -89,7 +87,7 @@ void print(const rat& a) {
 
 rat reduce(const rat& a) {
     int apos = abs(a.num);
-    int d = __gcd(apos, a.den);
+    int d = gcd(apos, a.den);
     int num = a.num / d;
     int den = a.den / d;
     return rational(num, den);
